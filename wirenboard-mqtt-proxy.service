@@ -1,0 +1,14 @@
+[Unit]
+Description=wirenboard-mqtt-proxy
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/node server
+WorkingDirectory=/usr/lib/node_modules/wirenboard-mqtt-proxy/lib
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

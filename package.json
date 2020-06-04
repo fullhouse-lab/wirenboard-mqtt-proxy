@@ -1,0 +1,22 @@
+{
+  "name": "wirenboard-mqtt-proxy",
+  "version": "1.0.0",
+  "description": "MQTT Proxy server for WirenBoard",
+  "main": "./lib/server.js",
+  "preferGlobal": true,
+  "bin": {
+    "wirenboard-mqtt-proxy": "./bin/index.js"
+  },
+  "keywords": [
+    "wirenboard",
+    "wb",
+    "mqtt",
+    "proxy",
+    "fullhouse"
+  ],
+  "author": "FullHouse <support@fullhouse-online.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "^4.1.0"
+  }
+}
