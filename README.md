@@ -72,15 +72,15 @@ When proxy will be connected, test device will set config and will receive tempe
 
 ## Available commands
 
-`wirenboard-mqtt-proxy enable`  - Enable autorun on boot OS
-`wirenboard-mqtt-proxy disable` - Disable autorun on boot OS
-`wirenboard-mqtt-proxy start`   - Start mqtt proxy
-`wirenboard-mqtt-proxy stop`    - Stop mqtt proxy
-`wirenboard-mqtt-proxy restart` - Restart mqtt proxy
+- `wirenboard-mqtt-proxy enable`  - Enable autorun on boot OS
+- `wirenboard-mqtt-proxy disable` - Disable autorun on boot OS
+- `wirenboard-mqtt-proxy start`   - Start mqtt proxy
+- `wirenboard-mqtt-proxy stop`    - Stop mqtt proxy
+- `wirenboard-mqtt-proxy restart` - Restart mqtt proxy
 
 All commands using systemctl, so you can also do this
-`systemctl status wirenboard-mqtt-proxy` - Show service status
-`journalctl -u wirenboard-mqtt-proxy -f` - Show logs
+- `systemctl status wirenboard-mqtt-proxy` - Show service status
+- `journalctl -u wirenboard-mqtt-proxy -f` - Show logs
 
 ## Notice
 
@@ -94,6 +94,6 @@ npm root -g
 ----
 
 Best regards
-FullHouse team
-https://fullhouse-online.ru
-support@fullhouse-online.ru
+- FullHouse team
+- https://fullhouse-online.ru
+- support@fullhouse-online.ru
