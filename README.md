@@ -41,7 +41,7 @@ Due to `connect` value we can detect when service started after device reboot, s
 ```
 
 Result rule: test.js
-```
+```javascript
 //  created virtual device called "Test"  //
 defineVirtualDevice("test", {
   title: "Test",
@@ -94,6 +94,6 @@ npm root -g
 ----
 
 Best regards
-- FullHouse team
+- **FullHouse team**
 - https://fullhouse-online.ru
 - support@fullhouse-online.ru

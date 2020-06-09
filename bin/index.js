@@ -11,6 +11,8 @@ const MODULE_NAME = 'wirenboard-mqtt-proxy'
 const SERVICE_DIR   = '/etc/systemd/system'
 const SERVICE_FILE  = MODULE_NAME + '.service'
 
+const RULES_DIR  = '/etc/wb-rules'
+
 const HELP = `
 Available commands:
 ${MODULE_NAME} enable  - Enable autorun on boot OS
@@ -59,6 +61,19 @@ const arguments = process.argv.splice(2)
 //   })
 // }
 
+const copyRule = (cb_onDone) => {
+  if (!fs.existsSync(RULES_DIR)){
+    fs.mkdirSync(RULES_DIR)
+  }
+
+  fs.copyFile(
+    path.resolve(__dirname, '../wb-rules/mqtt-proxy.js'),
+    path.resolve(RULES_DIR, 'mqtt-proxy.js'), err => {
+    if (err) throw err
+    cb_onDone()
+  })
+}
+
 const copyServiceFile = (cb_onDone) => {
   fs.copyFile(
     path.resolve(__dirname, '../' + SERVICE_FILE),
@@ -89,7 +104,7 @@ const execCommand = (cmd, cb_onDone) => {
 switch (arguments[0]) {
 
   case 'enable':
-    // copyServerFile(() => {
+    copyRule(() => {
       copyServiceFile(() => {
         execCommand(CMD_SYSTEMCTL_RELOAD, () => {
           execCommand(CMD_ENABLE, () => {
@@ -97,7 +112,7 @@ switch (arguments[0]) {
           })
         })
       })
-    // })
+    })
     break
 
   case 'disable':
@@ -107,7 +122,7 @@ switch (arguments[0]) {
     break
 
   case 'start':
-    // copyServerFile(() => {
+    copyRule(() => {
       copyServiceFile(() => {
         execCommand(CMD_SYSTEMCTL_RELOAD, () => {
           execCommand(CMD_START, () => {
@@ -115,7 +130,7 @@ switch (arguments[0]) {
           })
         })
       })
-    // })
+    })
     break
 
   case 'stop':
@@ -125,7 +140,7 @@ switch (arguments[0]) {
     break
 
   case 'restart':
-    // copyServerFile(() => {
+    copyRule(() => {
       copyServiceFile(() => {
         execCommand(CMD_SYSTEMCTL_RELOAD, () => {
           execCommand(CMD_RESTART, () => {
@@ -133,7 +148,7 @@ switch (arguments[0]) {
           })
         })
       })
-    // })
+    })
     break
 
   // case 'status':
