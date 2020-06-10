@@ -1,6 +1,6 @@
 {
   "name": "wirenboard-mqtt-proxy",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "MQTT Proxy server for WirenBoard",
   "main": "./lib/server.js",
   "preferGlobal": true,
